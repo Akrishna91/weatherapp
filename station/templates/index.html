@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Station</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/ionicons.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <!-- Google Fonts -->
+
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic|Cinzel:400,700,900' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+<div id="preloader"></div>
+
+		<section id="video-wrap">
+			<div id="video"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="logo text-center wow fadeInDown">
+						<h1 class="headline">Weather Station App</h1>
+							<a href="#"><img src={{data.icon_url}} style="width:190px; height:190px;"></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 wow fadeInLeft" style="z-index: 9999;">
+						<div class="headline-wrap">
+							<h1 class="headline">
+								<span class="quotes">{{data.location}}</span>
+								<span class="quotes">{{data.weather}}</span>
+							</h1>
+							<h3 style="color:white">{{ data.observation_time }}</h3>
+							<!-- SUCCESS OR ERROR MESSAGES -->
+            				<div id="subscription-response"></div>
+						</div>
+					</div>
+					<div class="col-md-6  wow fadeInRight">
+						<div class="clock row">
+					        <div class="col-xs-3 col-sm-3 col-md-6">
+					            <div class="clock-item clock-minutes countdown-time-value">
+					            	<div class="wrap">
+						                <div class="inner">
+						                    <div id="canvas-minutes" class="clock-canvas"></div>
+
+						                    <div class="text">
+						                        <p class="val">{{data.temp}} &#x2109;</p>
+						                        <p class="type-minutes type-time">Temperature</p>
+						                    </div><!-- /.text -->
+						                </div><!-- /.inner -->
+						            </div><!-- /.wrap -->
+					            </div>
+					        </div><!-- /.clock-item -->
+
+					        <div class="col-xs-3 col-sm-3 col-md-6">
+					        	<div class="clock-item clock-seconds countdown-time-value">
+					        		<div class="wrap">
+						                <div class="inner">
+						                    <div id="canvas-seconds" class="clock-canvas"></div>
+
+						                    <div class="text">
+						                        <p class="val">{{data.humidity}}</p>
+						                        <p class="type-seconds type-time">Humidity</p>
+						                    </div><!-- /.text -->
+						                </div><!-- /.inner -->
+						            </div><!-- /.wrap -->
+					        	</div>
+					        </div><!-- /.clock-item -->
+					    </div>
+					</div>
+				</div>
+			</div>
+
+			<div class="arrow-down text-center">
+				<a href="#nav-menu" class="wow bounce" data-wow-duration="4s" data-wow-delay="1s" data-wow-iteration="1000"><i class="ion-chevron-down"></i></a>
+			</div>
+		</section>
+
+		<section>
+			<nav id="nav-menu" class="navbar nav-layla" role="navigation">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav">
+						<i class="ion-navicon"></i>
+					</button>
+					<a class="navbar-brand" href="#">LAYLA</a>
+				</div>
+
+				<div class="collapse navbar-collapse main-nav">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#video-wrap">Top</a><span class="hover-li"></span></li>
+						<li><a href="#about">About</a><span class="hover-li"></span></li>
+					</ul>
+				</div>
+			</nav>
+		</section>
+
+		<section id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="title text-center wow zoomIn">
+							<h1>ABOUT</h1>
+							<span class="title line"></span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 text-center wow fadeInLeft">
+						<img src="{% static "assets/krishna.jpg" %}" alt="Jane Doe" class="img-responsive portrait">
+					</div>
+					<div class="col-sm-6 wow fadeInRight">
+						<div class="about-text">
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quos sunt, possimus inventore quo expedita earum animi optio, dignissimos placeat quaerat voluptatum deserunt voluptatibus molestias iure adipisci totam quidem. </p>
+
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quos sunt, possimus inventore quo expedita earum animi optio, dignissimos placeat quaerat voluptatum deserunt voluptatibus molestias iure adipisci totam quidem. </p>
+
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quos sunt, possimus inventore quo expedita earum animi optio, dignissimos placeat quaerat voluptatum deserunt voluptatibus molestias iure adipisci totam quidem. </p>
+							<div class="signature text-right">
+								<img src="{% static "assets/signature.png" %}" class="img-responsive" alt="Jane Doe">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8">
+						<p class="copyright text-left">Copyright © Krishna . All rights reserved.</p>
+					</div>
+					<div class="col-sm-4">
+						<p class="copyright text-right">Theme by <a href="#">Krishna</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<script src="{% static "js/modernizr.custom.js" %}"></script>
+		<script src="{% static "js/jquery.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
+		<script src="{% static "js/jquery.videoBG.js" %}"></script>
+		<script src="{% static "js/jquery.sticky-kit.min.js" %}"></script>
+		<script src="{% static "js/wow.min.js" %}"></script>
+		<script src="{% static "js/script.js" %}"></script>
+</body>
+</html>
